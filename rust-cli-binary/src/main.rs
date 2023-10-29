@@ -27,7 +27,7 @@ fn main() {
         Ok(_) => println!("Successfully read from the SQLite DB."),
         Err(e) => println!("Error occurred while reading data: {}", e),
     }
-    println!
+    println!();
 
     match update("flightsDB.db", 2023, "October", 1000) {
         Ok(_) => println!("Successfully updated data in the SQLite DB."),
@@ -38,7 +38,7 @@ fn main() {
         Ok(_) => println!("Successfully read from the SQLite DB."),
         Err(e) => println!("Error occurred while reading data: {}", e),
     }
-    println!
+    println!();
 
     let year_to_delete = 2023;
     match delete(db_path, year_to_delete) {
@@ -50,5 +50,5 @@ fn main() {
         Ok(_) => println!("Successfully read from the SQLite DB."),
         Err(e) => println!("Error occurred while reading data: {}", e),
     }
-    println!
+    println!();
 }
