@@ -40,7 +40,7 @@ jobs:
     - name: Make Test
       run: make test
 
-    - name: Clean
+    - name: Clean All
       run: make clean
 
     - name: Archive Binary
