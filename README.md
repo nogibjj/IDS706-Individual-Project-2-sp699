@@ -1,4 +1,4 @@
-![Format](https://github.com/nogibjj/IDS706-Individual-Project-2-sp699/actions/workflows/cicd.yml/badge.svg)</br>
+![Rust CLI Binary](https://github.com/nogibjj/IDS706-Individual-Project-2-sp699/actions/workflows/cicd.yml/badge.svg)</br>
 # IDS-706-Data-Engineering :computer:
 
 ## Individual Project 2 :page_facing_up:</br> 
