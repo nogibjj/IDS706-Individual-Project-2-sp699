@@ -39,9 +39,9 @@
 * `test.rs`
   - Test all the functions in 'lib.rs' and verify that the operations execute correctly.
 
-#### `Section 2`  Viewing the Results of the Rust Source Code
-##### Verify the CRUD Operations on the SQLite Database Using Rust
-(To be updated)
+#### `Section 2` Optimized Rust Binary
+##### Rust binary that has been compiled in an optimized form.
+* 
 
 #### `Section 3` GitHub Copilot
 ##### Use of GitHub Copilot
