@@ -34,116 +34,36 @@
   - __read__:  Retrieve all entries from the database.
   - __update__: Modify existing entries in the database.
   - __delete__: Remove specific entries from the database.
-  
-      // Check if the result is Ok(()).
-          assert!(
-              result.is_ok(),
-              "Transform function failed with {:?}",
-              result
-          );
-      }
-  
-      #[test]
-      fn test_create() {
-          let db_path = "test_flightsDB.db";
-  
-          // Create data in the database.
-          let result = create(db_path, 2023, "March", 200);
-          assert!(result.is_ok(), "Create function failed with {:?}", result);
-  
-          // Verify the created data.
-          let conn = Connection::open(db_path).unwrap();
-          let passengers: i32 = conn
-              .query_row(
-                  "SELECT passengers FROM data WHERE year = 2023 AND month = 'March'",
-                  params![],
-                  |row| row.get(0),
-              )
-              .unwrap();
-          assert_eq!(passengers, 200);
-      }
-  
-      #[test]
-      fn test_read() {
-          let db_path = "test_flightsDB.db";
-  
-          let conn = Connection::open(db_path).unwrap();
-          conn.execute(
-              "CREATE TABLE IF NOT EXISTS data (year INTEGER, month TEXT, passengers INTEGER)",
-              [],
-          )
-          .unwrap();
-          conn.execute(              "INSERT INTO data (year, month, passengers) VALUES (2023, 'April', 250)",
-              [],
-          )
-          .unwrap();
-  
-          // Read data from the database.
-          let result = read(db_path);
-          assert!(result.is_ok(), "Read function failed with {:?}", result);
-      }
-  
-      #[test]
-      fn test_update() {
-          let db_path = "test_flightsDB.db";
-          let conn = Connection::open(db_path).unwrap();
-          conn.execute(
-              "CREATE TABLE IF NOT EXISTS data (year INTEGER, month TEXT, passengers INTEGER)",
-              [],
-          )
-          .unwrap();
-          conn.execute(
-              "INSERT INTO data (year, month, passengers) VALUES (2023, 'May', 300)",
-              [],
-          )
-          .unwrap();
-  
-          // Update data in the database.
-          let result = update(db_path, 2023, "May", 350);
-          assert!(result.is_ok(), "Update function failed with {:?}", result);
-  
-          // Verify the updated data.
-          let passengers: i32 = conn
-              .query_row(
-                  "SELECT passengers FROM data WHERE year = 2023 AND month = 'May'",
-                  params![],
-                  |row| row.get(0),
-              )
-              .unwrap();
-          assert_eq!(passengers, 350);
-      }
-  
-      #[test]
-      fn test_delete() {
-          let db_path = "test_flightsDB.db";
-          let conn = Connection::open(db_path).unwrap();
-          conn.execute(
-              "CREATE TABLE IF NOT EXISTS data (year INTEGER, month TEXT, passengers INTEGER)",
-              [],
-          )
-          .unwrap();
-          conn.execute(
-              "INSERT INTO data (year, month, passengers) VALUES (2023, 'June', 400)",
-              [],
-          )
-          .unwrap();
-  
-          // Delete data from the database.
-          let result = delete(db_path, 2023);
-          assert!(result.is_ok(), "Delete function failed with {:?}", result);
-  
-          // Verify the data was properly deleted.
-          let count: i32 = conn
-              .query_row(
-                  "SELECT COUNT(*) FROM data WHERE year = 2023",
-                  params![],
-                  |row| row.get(0),
-              )
-              .unwrap();
-          assert_eq!(count, 0);
-      }
-  }
-  ```
+* `main.rs`
+  - Extract the CSV file, convert it to a database file, and then perform CRUD operations using it.
+* `test.rs`
+  - Test all the functions in 'lib.rs' and verify that the operations execute correctly.
 
 #### `Section 2`  Viewing the Results of the Rust Source Code
 ##### Verify the CRUD Operations on the SQLite Database Using Rust
+(To be updated)
+
+#### `Section 3` GitHub Copilot
+##### Use of GitHub Copilot
+* How to utilize GitHub Copilot in coding process
+  - Ask about the coding when writing the Rust CRUD file.
+  - Inquire about why the code isn't running.
+  - Seek assistance with setting up GitHub configuration.
+
+#### `Section 4` GitHub Actions
+##### Test, Build, and Lint Rust Code
+* Using the __`cargo`__ command, the GitHub Actions file can test, build, and lint your Rust code effectively.
+1. Test
+  - Test the SQLite CRUD operation using Rust.
+  - Use the 'cargo test' for testing.</br>
+![image](https://github.com/nogibjj/IDS706-Individual-Project-2-sp699/assets/143478016/221630b9-2793-4b2d-b444-83a7a05e620a)
+2. Build
+  - Build the Rust code in the current directory.
+  - 'cargo build' compile the code and produce an executable binary or library.</br>
+![image](https://github.com/nogibjj/IDS706-Individual-Project-2-sp699/assets/143478016/58c23eaa-ecc3-431b-bbee-0174fbda8494)
+3. Lint
+  - Check Rust code for style guidelines, conventions, and potential errors or issues.
+  - Use 'cargo clippy --quiet'.
+  - '--quiet' helps get only the resulting errors and warnings displayed without any additional output.</br>
+![image](https://github.com/nogibjj/IDS706-Individual-Project-2-sp699/assets/143478016/09538eab-00b7-474d-8da4-22d42e118b40)
+
