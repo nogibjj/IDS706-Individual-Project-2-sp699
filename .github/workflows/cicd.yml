@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: actions-rs/toolchain@v1
       with:
           toolchain: stable
@@ -26,7 +26,7 @@ jobs:
       run: make install
 
     - name: Build Rust
-      run: make build
+      run: make release
 
     - name: Format the Code
       run: make format
@@ -36,9 +36,6 @@ jobs:
 
     - name: Make Test
       run: make test
-
-    - name: Clean All
-      run: make clean
 
     - name: Archive Binary
       uses: actions/upload-artifact@v2
