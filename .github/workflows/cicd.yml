@@ -25,9 +25,6 @@ jobs:
     - name: Install Dependencies
       run: make install
 
-    - name: Release
-      run: make release
-
     - name: Build Rust
       run: make build
 
