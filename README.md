@@ -58,17 +58,19 @@
 #### `Section 5` GitHub Actions
 ##### Test, Build, and Lint Rust Code
 * Using the __`cargo`__ command, the GitHub Actions file can test, build, and lint your Rust code effectively.
-1. Test
+1. __`Test`__
   - Test the SQLite CRUD operation using Rust.
   - Use the `cargo test` for testing.
 
 ![image](https://github.com/nogibjj/IDS706-Individual-Project-2-sp699/assets/143478016/221630b9-2793-4b2d-b444-83a7a05e620a)
-2. Build
+
+2. __`Build`__
   - Build the Rust code in the current directory.
   - `cargo build` compile the code and produce an executable binary or library.
 
 ![image](https://github.com/nogibjj/IDS706-Individual-Project-2-sp699/assets/143478016/58c23eaa-ecc3-431b-bbee-0174fbda8494)
-3. Lint
+
+3. __`Lint`__
   - Check Rust code for style guidelines, conventions, and potential errors or issues.
   - Use `cargo clippy --quiet`.
   - '--quiet' helps get only the resulting errors and warnings displayed without any additional output.
