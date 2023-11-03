@@ -9,6 +9,9 @@ rust-version:
 install:
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
+release:
+	cd rust-cli-binary && cargo build --release
+
 format:
 	cd rust-cli-binary && cargo fmt --quiet
 
@@ -20,6 +23,3 @@ run:
 
 test:
 	cd rust-cli-binary && cargo test --quiet
-
-release:
-	cd rust-cli-binary && cargo build --release
